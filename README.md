@@ -18,7 +18,7 @@ The package takes a string query, such as (min-width: 800px) and retur
 
 ```bash
 <script lang="ts">
-  import {mediaQueryStore} from 'svelte-media-query-store/mediaQueryStore';
+  import {mediaQueryStore} from 'svelte-media-query-store';
 
   const isMobile = mediaQueryStore("(max-width: 600px)");
 </script>
@@ -32,7 +32,7 @@ The package takes a string query, such as (min-width: 800px) and retur
 
 ```bash
 ## store.ts
-import { mediaQueryStore } from 'svelte-media-query-store/mediaQueryStore';
+import { mediaQueryStore } from 'svelte-media-query-store';
 
 export const md = mediaQueryStore('(min-width: 768px)');
 
