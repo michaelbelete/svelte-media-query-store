@@ -8,6 +8,7 @@
 		"media query",
 		"store"
 	],
+	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
@@ -17,7 +18,7 @@
 		"format": "prettier --write ."
 	},
 	"exports": {
-		".": "./src/lib/mediaQueryStore.ts"
+		".": "./mediaQueryStore.js"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
