@@ -11,8 +11,9 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/michaelbelete/svelte-media-query-store"
+		"url": "https://github.com/michaelbelete/svelte-media-query-store.git"
 	},
+	"homepage": "https://github.com/michaelbelete/svelte-media-query-store#readme",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
