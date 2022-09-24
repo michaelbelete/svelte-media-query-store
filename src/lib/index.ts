@@ -1,4 +1,5 @@
 // Reexport your entry components here
-import { mediaQueryStore } from './media-query-store.js';
+import { mediaQueryStore } from './mediaQueryStore';
+import { breakpointMatcher } from './breakpointMatcher';
 
-export { mediaQueryStore };
+export { mediaQueryStore, breakpointMatcher };

@@ -1,6 +1,6 @@
 {
 	"name": "svelte-media-query-store",
-	"version": "0.0.8",
+	"version": "0.1.1",
 	"description": "Provide a reactive store that detects specific media query",
 	"author": "Michael Belete",
 	"keywords": [
@@ -23,7 +23,7 @@
 		"format": "prettier --write ."
 	},
 	"exports": {
-		".": "./src/lib/mediaQueryStore.js"
+		".": "./mediaQueryStore.js"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "next",
