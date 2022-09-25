@@ -27,6 +27,8 @@ Takes object with breakpoint as a key and a string query as a value and observes
   import { derived } from 'svelte/store';
   import { breakpointMatcher } from './lib/store';
 
+  //for breakpoint matcher
+  //tailwind breakpoints
   const breakpoints: Record<string, string> = {
     'sm': '(min-width: 640px)',
     'md': '(min-width: 768px)',
@@ -35,16 +37,17 @@ Takes object with breakpoint as a key and a string query as a value and observes
     '2xl': '(min-width: 1536px)'
   };
 
-  const breakpoints = breakpointMatcher(breakpoints);
+  const currentBreakpointMatcher = breakpointMatcher(breakpoints);
 
   // use derived store for conditions so it can be reactive
-  const isXl = derived(breakpoints, ($breakpoints) => {
-    return $breakpoints === 'xl';
+  const isXl = derived(currentBreakpointMatcher, ($currentBreakpointMatcher) => {
+    return $currentBreakpointMatcher === 'xl';
   });
 </script>
-<h1>{$breakpoints}</h1>
 
-<h2>{$isXl}</h2>
+<h1>Breakpoint Matcher</h1>
+<h2>Current Breakpoint: <b>{ $currentBreakpointMatcher }</b></h2>
+<h2>IsXL: {$isXl}</h2>
 
 ```
 
@@ -92,7 +95,7 @@ export const lg = mediaQueryStore('(min-width: 1024px)');
 
 ## Example
 
-https://stackblitz.com/edit/vitejs-vite-xdvbuz?file=src/App.svelte
+- https://stackblitz.com/edit/vitejs-vite-xdvbuz?file=README.md
 
 ## Author
 
