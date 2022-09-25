@@ -2,7 +2,13 @@
 
 # Svelte Media Query Store
 
-Provide a reactive store to check media query in svelte.
+Provides you with a reactive store for checking CSS media queries and breakpoint matcher that keep track of the matching state of the given media queries .
+
+## Features
+
+- **CSS Media Queries Matcher** -
+  Takes a string query, such as (min-width: 800px) and returns a readable store.
+- **Breakpoint Matcher :** Takes object with breakpoint as a key and a string query as a value and observes browser changes accordingly and returns the matching breakpoint.
 
 ## Installation
 
@@ -12,9 +18,41 @@ $ npm i svelte-media-query-store
 
 ## Usage
 
+### Breakpoint Matcher
+
+Takes object with breakpoint as a key and a string query as a value and observes browser changes accordingly and returns the matching breakpoint.
+
+```bash
+<script lang="ts">
+  import { derived } from 'svelte/store';
+  import { breakpointMatcher } from './lib/store';
+
+  const breakpoints: Record<string, string> = {
+    'sm': '(min-width: 640px)',
+    'md': '(min-width: 768px)',
+    'lg': '(min-width: 1024px)',
+    'xl': '(min-width: 1280px)',
+    '2xl': '(min-width: 1536px)'
+  };
+
+  const breakpoints = breakpointMatcher(breakpoints);
+
+  // use derived store for conditions so it can be reactive
+  const isXl = derived(breakpoints, ($breakpoints) => {
+    return $breakpoints === 'xl';
+  });
+</script>
+<h1>{$breakpoints}</h1>
+
+<h2>{$isXl}</h2>
+
+```
+
+### CSS Media Queries Matcher
+
 The package takes a string query, such as (min-width: 800px) and returns a **readable store**.
 
-### In frontend
+#### In frontend
 
 ```bash
 <script lang="ts">
@@ -26,9 +64,9 @@ The package takes a string query, such as (min-width: 800px) and retur
 <h2>{$isMobile}</h2> <!-- subscribing to the readable store --->
 ```
 
-## In Store
+### In Store
 
-### store.ts
+#### store.ts
 
 ```bash
 ## store.ts
@@ -40,7 +78,7 @@ export const lg = mediaQueryStore('(min-width: 1024px)');
 
 ```
 
-### App.svelte
+#### App.svelte
 
 ```bash
 <script lang="ts">
